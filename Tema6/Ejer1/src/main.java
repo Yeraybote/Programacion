@@ -1,6 +1,7 @@
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -99,15 +100,14 @@ public class main {
         try {
             long comparar = 999999999999999999L;
             for (Persona listapersona : listapersonas) {
-
+                int años = 0;
+                Calendar hoy = Calendar.getInstance();
                 SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
                 Date fechaUno = formato.parse(listapersona.dNacimiento + "/" + listapersona.mNacimiento + "/" + listapersona.aNacimiento);
-                Date hoy = formato.parse(20 + "/" + 12 + "/" + 2021);
-                fechaUno.setTime(Long.parseLong(listapersona.dNacimiento + listapersona.mNacimiento + listapersona.aNacimiento));
                 long mfechaUno = fechaUno.getTime();
-                long mhoy = hoy.getTime();
-                int dias = funcionDias(mfechaUno, mhoy);
-                int años = dias / 364;
+                int dias = funcionDias(mfechaUno, hoy);
+                años = dias / 364;
+                System.out.println(listapersona.nombre + "/" + años + "/" + mfechaUno);
                 if (años >= 18) {
                     mayoresedad ++;
                 }
@@ -118,7 +118,8 @@ public class main {
         }
     }
 
-    public static int funcionDias(long mfechaUno, long mhoy) {
+    public static int funcionDias(long mfechaUno, Calendar hoy) {
+        long mhoy = hoy.getTimeInMillis();
         return (int)Math.abs((mfechaUno - mhoy) / (8640 * 10000));
     }
 }
