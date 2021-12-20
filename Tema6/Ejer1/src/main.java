@@ -1,16 +1,14 @@
-import javax.swing.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
-import static java.lang.System.currentTimeMillis;
 import static javax.swing.JOptionPane.*;
 public class main {
     static String personamayor;
-    static ArrayList <Alumnos> listaalumnos = new ArrayList<>();
+    static int mayoresedad = 0;
+    /* static ArrayList <Alumnos> listaalumnos = new ArrayList<>(); */
     static ArrayList <Persona> listapersonas = new ArrayList<>();
 
     public static void main(String[] args) {
@@ -74,14 +72,14 @@ public class main {
     public static void funcionMayor () {
         try {
             long comparar = 999999999999999999L;
-            for (int x = 0; x < listapersonas.size(); x++) {
+            for (Persona listapersona : listapersonas) {
                 SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-                Date fechaUno = formatter.parse(listapersonas.get(x).dNacimiento+"/"+listapersonas.get(x).mNacimiento+"/" + listapersonas.get(x).aNacimiento);
+                Date fechaUno = formatter.parse(listapersona.dNacimiento + "/" + listapersona.mNacimiento + "/" + listapersona.aNacimiento);
                 long mfecha1 = fechaUno.getTime();
-                    if (mfecha1 < comparar) {
-                        comparar = mfecha1;
-                        personamayor = listapersonas.get(x).getNombre();
-                    }
+                if (mfecha1 < comparar) {
+                    comparar = mfecha1;
+                    personamayor = listapersona.getNombre();
+                }
             }
             showMessageDialog(null,"La persona mas mayor es: " + personamayor);
         } catch (ParseException e) {
@@ -91,8 +89,8 @@ public class main {
 
     public static void funcionElche () {
         int contador = 0;
-        for (int x = 0; x < listapersonas.size(); x++) {
-            if (listapersonas.get(x).getCiudad().equals("Elche")) contador++;
+        for (Persona listapersona : listapersonas) {
+            if (listapersona.getCiudad().toUpperCase(Locale.ROOT).equals("ELCHE")) contador++;
         }
         showMessageDialog(null,"Viven " + contador + " persona(s) en Elche");
     }
@@ -100,30 +98,27 @@ public class main {
     public static void funcionMayoresEdad () {
         try {
             long comparar = 999999999999999999L;
-            for (int x = 0; x < listapersonas.size(); x++) {
+            for (Persona listapersona : listapersonas) {
 
-                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-                Date fechaUno = formatter.parse(listapersonas.get(x).dNacimiento+"/"+listapersonas.get(x).mNacimiento+"/" + listapersonas.get(x).aNacimiento);
-                long mfecha1 = fechaUno.getTime();
-
-                Calendar hoy = Calendar.getInstance();
-                fechaUno.setTime(formatter.parse(listapersonas.get(x).dNacimiento+"/"+listapersonas.get(x).mNacimiento+"/" + listapersonas.get(x).aNacimiento));
-                int dias = funcionDias(fechaUno, hoy);
-                int años = dias /364;
-                if (mfecha1 < comparar) {
-                    comparar = mfecha1;
-                    personamayor = listapersonas.get(x).getNombre();
+                SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+                Date fechaUno = formato.parse(listapersona.dNacimiento + "/" + listapersona.mNacimiento + "/" + listapersona.aNacimiento);
+                Date hoy = formato.parse(20 + "/" + 12 + "/" + 2021);
+                fechaUno.setTime(Long.parseLong(listapersona.dNacimiento + listapersona.mNacimiento + listapersona.aNacimiento));
+                long mfechaUno = fechaUno.getTime();
+                long mhoy = hoy.getTime();
+                int dias = funcionDias(mfechaUno, mhoy);
+                int años = dias / 364;
+                if (años >= 18) {
+                    mayoresedad ++;
                 }
             }
-            showMessageDialog(null,"La persona mas mayor es: " + personamayor);
+            showMessageDialog(null,"Hay " + mayoresedad + " mayores de edad");
         } catch (ParseException e) {
             e.printStackTrace();
         }
     }
 
-    private static int funcionDias(Calendar date1, Calendar date2) {
-        long fecha1 = date1.getTimeInMillis();
-        long fecha2 = date2.getTimeInMillis();
-        return (int)Math.abs((fecha1 - fecha2) / (8640 * 10000));
+    public static int funcionDias(long mfechaUno, long mhoy) {
+        return (int)Math.abs((mfechaUno - mhoy) / (8640 * 10000));
     }
 }
