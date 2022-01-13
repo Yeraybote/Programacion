@@ -7,13 +7,14 @@ public class Pelicula {
     int año;
     int duracion;
     String tipo;
-    ArrayList<Estudio> listaEstudios;
+    ArrayList<Estudio> lEstudios;
 
-    public Pelicula(String titulo, int año, int duracion, String tipo) {
+    public Pelicula(String titulo, int año, int duracion, String tipo, ArrayList<Estudio> lEstudios) {
         this.titulo = titulo;
         this.año = año;
         this.duracion = duracion;
         this.tipo = tipo;
+        this.lEstudios = lEstudios;
     }
 
     public String getTitulo() {
@@ -46,6 +47,14 @@ public class Pelicula {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    public ArrayList<Estudio> getlEstudios() {
+        return lEstudios;
+    }
+
+    public void setlEstudios(ArrayList<Estudio> lEstudios) {
+        this.lEstudios = lEstudios;
     }
 }
 
