@@ -69,6 +69,6 @@ public class Main {
                 posicion = x;
             }
 
-        JOptionPane.showMessageDialog(null,"El estudio que más películas ha producido es: " + aEstudios.get(posicion).getNombre() + " y ha producido "+ maximo);
+        JOptionPane.showMessageDialog(null,"El estudio que más películas ha producido es: " + aEstudios.get(0).getNombre() + " y ha producido "+ maximo);
     }
 }
