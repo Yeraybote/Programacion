@@ -3,28 +3,63 @@ package com.company;
 import Modelo.*;
 
 import javax.swing.*;
+<<<<<<< HEAD
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Locale;
+=======
+<<<<<<< HEAD
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Locale;
+=======
+import java.util.ArrayList;
+>>>>>>> master
+>>>>>>> master
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import Excepciones.*;
+<<<<<<< HEAD
 import jdk.nashorn.internal.scripts.JO;
+=======
+<<<<<<< HEAD
+import jdk.nashorn.internal.scripts.JO;
+=======
+>>>>>>> master
+>>>>>>> master
 
 public class Main {
 
     // "Base de datos"
     private static ArrayList<Veterinario> listaVeterinarios;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> master
     private static ArrayList<Cliente> listaClientes;
     private static ArrayList<Mascota> listaMascotas;
     private static int contadorGatos = 0;
     private static int contadorPerros = 0;
+<<<<<<< HEAD
+=======
+=======
+
+>>>>>>> master
+>>>>>>> master
 
     public static void main(String[] args) {
 	    try
         {
+<<<<<<< HEAD
             guardarDatos();
+=======
+<<<<<<< HEAD
+            guardarDatos();
+=======
+            /* guardarDatos(); */
+>>>>>>> master
+>>>>>>> master
             abrirMenu();
         }
         catch(NullPointerException e)
@@ -42,8 +77,17 @@ public class Main {
     {
         // Solicitar, validar y guardar los datos de los clientes, de las mascotas y de los veterinarios.
         guardarVeterinarios();
+<<<<<<< HEAD
         guardarClientes();
         guardarMascotas();
+=======
+<<<<<<< HEAD
+        guardarClientes();
+        guardarMascotas();
+=======
+
+>>>>>>> master
+>>>>>>> master
     }
 
     public static void guardarVeterinarios() throws Exception
@@ -65,6 +109,10 @@ public class Main {
         }
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> master
     public static void guardarClientes() throws Exception
     {
         boolean seguir = true;
@@ -121,6 +169,11 @@ public class Main {
         }
     }
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> master
+>>>>>>> master
     public static String solicitarDato(String dato, String mensaje,String exp) throws Exception
     {
         String variable="";
@@ -151,7 +204,15 @@ public class Main {
         int menu = 6;
         do {
             menu = Integer.parseInt(JOptionPane.showInputDialog(null,"Seleccione una opción: \n" +
+<<<<<<< HEAD
                     "1. Nº clientes que poseen un tipo de animal concreto.\n" +
+=======
+<<<<<<< HEAD
+                    "1. Nº clientes que poseen un tipo de animal concreto.\n" +
+=======
+                    "1. Mostrar el número de clientes que poseen un tipo de animal concreto.\n" +
+>>>>>>> master
+>>>>>>> master
                     "2. Datos personales del cliente a partir del nombre de mascota.\n" +
                     "3. Datos del veterinario a partir de los datos de una mascota.\n" +
                     "4. Datos de las mascotas de un cliente.\n" +
@@ -182,12 +243,22 @@ public class Main {
     }
 
     public static void f1(){
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> master
         String tipo = JOptionPane.showInputDialog(null,"Perros o gatos: ");
         if (tipo.toUpperCase(Locale.ROOT).equals("PERROS")) {
             JOptionPane.showMessageDialog(null,"Tenemos " + contadorPerros + " perros en nuestra clínica.");
         } else {
             JOptionPane.showMessageDialog(null,"Tenemos " + contadorGatos + " gatos en nuestra clínica.");
         }
+<<<<<<< HEAD
+=======
+=======
+
+>>>>>>> master
+>>>>>>> master
     }
     public static void f2(){
 
