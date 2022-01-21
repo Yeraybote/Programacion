@@ -190,13 +190,40 @@ public class Main {
         }
     }
     public static void f2(){
-
+        String nombremascota = JOptionPane.showInputDialog(null,"Nombre de la mascota: ");
+        for (int x = 0; x < listaMascotas.size(); x++){
+            if (listaMascotas.get(x).getNombre().toUpperCase(Locale.ROOT).equals(nombremascota.toUpperCase(Locale.ROOT))){
+                JOptionPane.showMessageDialog(null,"Nombre: " + listaMascotas.get(x).getDueño().getNombre()
+                + "\nDirección: " + listaMascotas.get(x).getDueño().getDireccion()
+                + "\nTeléfono: " + listaMascotas.get(x).getDueño().getTelefono());
+            }
+        }
     }
     public static void f3(){
-
+        String nombremascota = JOptionPane.showInputDialog(null,"Nombre de la mascota: ");
+        for (int x = 0; x < listaMascotas.size(); x++){
+            if (listaMascotas.get(x).getNombre().toUpperCase(Locale.ROOT).equals(nombremascota.toUpperCase(Locale.ROOT))){
+                JOptionPane.showMessageDialog(null,"Nombre: " + listaMascotas.get(x).getV().getNombre()
+                        + "\nDirección: " + listaMascotas.get(x).getV().getDireccion()
+                        + "\nTeléfono: " + listaMascotas.get(x).getV().getTelefono()
+                        + "\nDNI: " + listaMascotas.get(x).getV().getDni()
+                        + "\nNSS: " + listaMascotas.get(x).getV().getNss());
+            }
+        }
     }
     public static void f4(){
-
+        String nombrecliente = JOptionPane.showInputDialog(null,"Nombre de la cliente: ");
+        for (int x = 0; x < listaClientes.size(); x++){
+            if (listaClientes.get(x).getListaMascotas().get(x).getDueño().equals(nombrecliente)) {
+                JOptionPane.showMessageDialog(null, "Raza: " + listaClientes.get(x).getListaMascotas().get(x).getRaza()
+                + "\nNombre: " + listaClientes.get(x).getListaMascotas().get(x).getNombre()
+                + "\nFecha Nac: " + listaClientes.get(x).getListaMascotas().get(x).getFechaNacimiento()
+                + "\nPeso: " + listaClientes.get(x).getListaMascotas().get(x).getPeso()
+                + "\nSexo: " + listaClientes.get(x).getListaMascotas().get(x).getSexo()
+                + "\nLongitud: " + listaClientes.get(x).getListaMascotas().get(x).getLongitud()
+                + "\nColor: " + listaClientes.get(x).getListaMascotas().get(x).getColor());
+            }
+        }
     }
     public static void f5(){
 
