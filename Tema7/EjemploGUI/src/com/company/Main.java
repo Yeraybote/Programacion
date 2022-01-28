@@ -18,6 +18,6 @@ public class Main {
 
     public static void tenDatos(String nombre){
         // Persona p = new Persona(nombre);
-        frame.tenDatos("pepe");
+        //frame.tenDatos("pepe");
     }
 }

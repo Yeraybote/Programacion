@@ -56,7 +56,7 @@
           <text value="Apellido:"/>
         </properties>
       </component>
-      <component id="2fe90" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+      <component id="2fe90" class="javax.swing.JTextField" binding="tfApellido">
         <constraints>
           <grid row="3" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -76,7 +76,7 @@
           <text value="DNI:"/>
         </properties>
       </component>
-      <component id="3e712" class="javax.swing.JTextField" binding="textField2" default-binding="true">
+      <component id="3e712" class="javax.swing.JTextField" binding="tfDni">
         <constraints>
           <grid row="4" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>

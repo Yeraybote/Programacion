@@ -12,19 +12,19 @@ public class PanelPrincipal {
     private JLabel lNombre;
     private JTextField tfNombre;
     private JLabel lApellido;
-    private JTextField textField1;
+    private JTextField tfApellido;
     private JLabel lDni;
-    private JTextField textField2;
+    private JTextField tfDni;
     public JPanel PanelPrincipal;
     private JButton bSalir;
     private JButton bAceptar;
+    public static ArrayList<Persona> listapersonas = new ArrayList<>();
 
-    public static ArrayList<Persona> listapersonas;
     public PanelPrincipal() {
         bAceptar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                Persona p = new Persona(lNombre.getText(),lApellido.getText(),lDni.getText());
+                Persona p = new Persona(tfNombre.getText(), tfApellido.getText(), tfDni.getText());
                 listapersonas.add(p);
                 JOptionPane.showMessageDialog(null,"Persona creada");
             }
@@ -44,5 +44,9 @@ public class PanelPrincipal {
         frame.setLocationRelativeTo(null);
         frame.pack();
         frame.setVisible(true);
+    }
+
+    public static ArrayList<Persona> getListapersonas() {
+        return listapersonas;
     }
 }
