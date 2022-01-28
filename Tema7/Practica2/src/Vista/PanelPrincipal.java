@@ -18,12 +18,22 @@ public class PanelPrincipal {
     public JPanel PanelPrincipal;
     private JButton bSalir;
     private JButton bAceptar;
-    public static ArrayList<Persona> listapersonas = new ArrayList<>();
 
+    public static ArrayList<Persona> listapersonas = new ArrayList<>();
     public PanelPrincipal() {
         bAceptar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                for (int x = 0; x < listapersonas.size(); x++) {
+                    if (tfDni.getText().equals(listapersonas.get(x).getDni())){
+                        JFrame frame = new JFrame("Menu");
+                        frame.setContentPane(new Menu().Menu);
+                        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                        frame.setLocationRelativeTo(null);
+                        frame.pack();
+                        frame.setVisible(true);
+                    }
+                }
                 Persona p = new Persona(tfNombre.getText(), tfApellido.getText(), tfDni.getText());
                 listapersonas.add(p);
                 tfNombre.setText("");

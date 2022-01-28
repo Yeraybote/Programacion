@@ -16,9 +16,10 @@ public class PanelListaPersonas {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 for (int x = 0; x < PanelPrincipal.getListapersonas().size(); x++) {
-                    taLista.setText(PanelPrincipal.getListapersonas().get(x).getNombre() + " " +
+                    String datos = PanelPrincipal.getListapersonas().get(x).getNombre() + " " +
                             PanelPrincipal.getListapersonas().get(x).getApellido() + " " +
-                            PanelPrincipal.getListapersonas().get(x).getDni());
+                            PanelPrincipal.getListapersonas().get(x).getDni() + "\n";
+                    taLista.setText(datos);
                 }
             }
         });
