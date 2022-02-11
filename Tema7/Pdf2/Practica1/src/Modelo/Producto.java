@@ -6,6 +6,7 @@ public class Producto {
     String nombre;
     int unidades;
     double precio;
+    ArrayList <Proveedor> listaProveedores;
 
     public Producto(String nombre, int unidades, double precio) {
         this.nombre = nombre;
@@ -35,5 +36,13 @@ public class Producto {
 
     public void setPrecio(double precio) {
         this.precio = precio;
+    }
+
+    public ArrayList<Proveedor> getListaProveedores() {
+        return listaProveedores;
+    }
+
+    public void setListaProveedores(ArrayList<Proveedor> listaProveedores) {
+        this.listaProveedores = listaProveedores;
     }
 }

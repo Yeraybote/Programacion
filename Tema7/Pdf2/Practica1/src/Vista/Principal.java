@@ -1,5 +1,8 @@
 package Vista;
 
+import Modelo.Producto;
+import com.company.Main;
+
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -79,7 +82,7 @@ public class Principal extends JDialog {
                 //Activar opciones de compra
                 tfPrecioCompra.setEnabled(true);
                 listaProveedor.setEnabled(true);
-                tfImporte.setEnabled(true);
+                tfImporte.setEnabled(false);
             }
         });
         rbVenta.addFocusListener(new FocusAdapter() {
@@ -87,16 +90,32 @@ public class Principal extends JDialog {
             public void focusGained(FocusEvent focusEvent) {
                 super.focusGained(focusEvent);
                 // Activar opciones de venta
-                tfPrecioventa.setEnabled(true);
+                tfPrecioventa.setEnabled(false);
                 tfCliente.setEnabled(true);
                 cbProntopago.setEnabled(true);
                 cbVolumen.setEnabled(true);
-                tfImporteventa.setEnabled(true);
+                tfImporteventa.setEnabled(false);
 
                 // Desactivar opciones de compra
                 tfPrecioCompra.setEnabled(false);
                 listaProveedor.setEnabled(false);
                 tfImporte.setEnabled(false);
+            }
+        });
+        tfNombre.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusLost(FocusEvent focusEvent) {
+                super.focusLost(focusEvent);
+                String error = "si";
+                for (int x = 0; x < Main.listaProductos.size(); x++) {
+                    if (Main.listaProductos.get(x).getNombre().equals(tfNombre.getText())) {
+                        System.out.println(Main.listaProductos.get(x).getNombre());
+                        error = "no";
+                        break;
+                    }
+                } if (error.equals("si")) {
+                    JOptionPane.showMessageDialog(null,"Ese producto no existe");
+                }
             }
         });
     }

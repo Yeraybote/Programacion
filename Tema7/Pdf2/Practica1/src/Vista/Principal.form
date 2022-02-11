@@ -303,8 +303,8 @@
   </grid>
   <buttonGroups>
     <group name="op">
-      <member id="5df49"/>
       <member id="7fe96"/>
+      <member id="5df49"/>
     </group>
     <group name="cb">
       <member id="1090b"/>
