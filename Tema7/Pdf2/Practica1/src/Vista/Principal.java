@@ -111,10 +111,12 @@ public class Principal extends JDialog {
                     if (Main.listaProductos.get(x).getNombre().equals(tfNombre.getText())) {
                         System.out.println(Main.listaProductos.get(x).getNombre());
                         error = "no";
+                        tfNombre.setEnabled(false);
                         break;
                     }
                 } if (error.equals("si")) {
                     JOptionPane.showMessageDialog(null,"Ese producto no existe");
+                    tfNombre.setText("");
                 }
             }
         });
