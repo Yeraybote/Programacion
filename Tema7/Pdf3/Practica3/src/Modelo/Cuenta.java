@@ -1,27 +1,38 @@
 package Modelo;
 
+import java.util.ArrayList;
+
 public class Cuenta {
-    int clave;
-    String dni;
+    int numero;
+    double saldo;
+    ArrayList <Movimientos> listaMovimientos;
 
-    public Cuenta(int clave, String dni) {
-        this.clave = clave;
-        this.dni = dni;
+    public Cuenta(int numero, double saldo) {
+        this.numero = numero;
+        this.saldo = saldo;
     }
 
-    public int getClave() {
-        return clave;
+    public int getNumero() {
+        return numero;
     }
 
-    public void setClave(int clave) {
-        this.clave = clave;
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
-    public String getDni() {
-        return dni;
+    public double getSaldo() {
+        return saldo;
     }
 
-    public void setDni(String dni) {
-        this.dni = dni;
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+    public ArrayList<Movimientos> getListaMovimientos() {
+        return listaMovimientos;
+    }
+
+    public void setListaMovimientos(ArrayList<Movimientos> listaMovimientos) {
+        this.listaMovimientos = listaMovimientos;
     }
 }

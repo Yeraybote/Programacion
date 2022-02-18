@@ -1,6 +1,7 @@
 package Vista;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,11 +15,12 @@ public class Principal {
         bAcceso.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                JFrame frame = new JFrame("Acceder");
-                frame.setContentPane(new Acceder().jAcceder);
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.pack();
-                frame.setVisible(true);
+                JFrame frame2 = new JFrame("Acceder");
+                frame2.setSize(400,400);
+                frame2.setLocationRelativeTo(null);
+                frame2.setContentPane(new Acceder().jAcceder);
+                frame2.pack();
+                frame2.setVisible(true);
             }
         });
     }
