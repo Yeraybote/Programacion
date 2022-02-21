@@ -90,11 +90,14 @@ public class Acceder {
         bEntrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                int x = Main.comprobarCliente(tfDni.getText(),pfClave.getText());
-                if (x == 0) {
+                boolean existe = true;
+                existe = Main.comprobarCliente(tfDni.getText(),pfClave.getText());
+                if (existe == false) {
                     JOptionPane.showMessageDialog(null,"Clave o DNI erroneos");
                     pfClave.setText("");
                 } else {
+                    pfClave.setText("");
+                    tfDni.setText("");
                     /* Abrir siguiente pestaña */
                     JFrame frame = new JFrame("Consulta");
                     frame.setContentPane(new Consulta().jConsulta);

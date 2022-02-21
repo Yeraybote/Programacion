@@ -7,9 +7,11 @@ import Vista.Principal;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Vector;
 
 public class Main {
+    public static int posicionCliente;
     public static ArrayList <Cliente> aClientes = new ArrayList();
     public static ArrayList<Cuenta> aCuentas = new ArrayList();
     public static ArrayList<Movimientos> aMovimientos = new ArrayList();
@@ -30,8 +32,8 @@ public class Main {
     }
     public static void crearDatos(){
         /* Creación de clientes */
-        Cliente c1 = new Cliente("1234","58053266R","Yeray Bote");
-        Cliente c2 = new Cliente("4321","111","Ankara Messi");
+        Cliente c1 = new Cliente("333","333","Yeray Bote");
+        Cliente c2 = new Cliente("111","111","Ankara Messi");
         aClientes.add(c1);
         aClientes.add(c2);
 
@@ -52,10 +54,14 @@ public class Main {
         aMovimientos.add(m3);
 
         /* Crear relaciones */
-        /* Null pointer exception
-        aClientes.get(0).getListaCuentas().add(aCuentas.get(0));
-        aClientes.get(0).getListaCuentas().add(aCuentas.get(1));
-        aClientes.get(1).getListaCuentas().add(aCuentas.get(2)); */
+        ArrayList cue1 = new ArrayList();
+        cue1.add(aCuentas.get(0));
+        cue1.add(aCuentas.get(1));
+        aClientes.get(0).setListaCuentas(cue1);
+
+        ArrayList cue2 = new ArrayList();
+        cue2.add(aCuentas.get(2));
+        aClientes.get(1).setListaCuentas(cue2);
 
         ArrayList mov1 = new ArrayList();
         mov1.add(aMovimientos.get(0));
@@ -70,21 +76,16 @@ public class Main {
         ArrayList mov3 = new ArrayList();
         mov3.add(aMovimientos.get(0));
         mov3.add(aMovimientos.get(2));
-        aCuentas.get(0).setListaMovimientos(mov3);
-
-        /* Null pointer exception
-        aCuentas.get(0).getListaMovimientos().add(aMovimientos.get(0));
-        aCuentas.get(0).getListaMovimientos().add(aMovimientos.get(1));
-        aCuentas.get(1).getListaMovimientos().add(aMovimientos.get(2));
-        aCuentas.get(2).getListaMovimientos().add(aMovimientos.get(1)); */
+        aCuentas.get(2).setListaMovimientos(mov3);
     }
-    public static int comprobarCliente(String dni, String clave){
-        int posicion = 0;
+    public static boolean comprobarCliente(String dni, String clave){
+        boolean existe = false;
         for (int x = 0; x < aClientes.size(); x++) {
-            if (aClientes.get(x).getDni().equals(dni) && aClientes.get(x).getClave().equals(clave)) {
-                posicion = x;
+            if (aClientes.get(x).getDni().toUpperCase(Locale.ROOT).equals(dni.toUpperCase(Locale.ROOT)) && aClientes.get(x).getClave().equals(clave)) {
+                existe = true;
+                posicionCliente = x;
             }
         }
-        return posicion;
+        return existe;
     }
 }
