@@ -39,9 +39,11 @@ public class Consulta {
         rbC1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                lMovimientos.setText(Main.aClientes.get(Main.posicionCliente).getListaCuentas().get(0).getListaMovimientos().get(0).getFecha()
-                + " " + Main.aClientes.get(Main.posicionCliente).getListaCuentas().get(0).getListaMovimientos().get(0).getDescripcion()
-                + " " + Main.aClientes.get(Main.posicionCliente).getListaCuentas().get(0).getListaMovimientos().get(0).getImporte() + "\n");
+                for (int x = 0; x < Main.aClientes.get(Main.posicionCliente).getListaCuentas().get(0).getListaMovimientos().size(); x++) {
+                    lMovimientos.setText("\n" + lMovimientos.getText() + Main.aClientes.get(Main.posicionCliente).getListaCuentas().get(0).getListaMovimientos().get(x).getFecha()
+                            + " " + Main.aClientes.get(Main.posicionCliente).getListaCuentas().get(0).getListaMovimientos().get(x).getDescripcion()
+                            + " " + Main.aClientes.get(Main.posicionCliente).getListaCuentas().get(0).getListaMovimientos().get(x).getImporte() + "\n");
+                }
             }
         });
         rbC2.addActionListener(new ActionListener() {

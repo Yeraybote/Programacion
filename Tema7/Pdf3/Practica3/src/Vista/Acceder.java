@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Acceder {
+public class Acceder extends JFrame {
     public JPanel jAcceder;
     private JTextField tfDni;
     private JPasswordField pfClave;
