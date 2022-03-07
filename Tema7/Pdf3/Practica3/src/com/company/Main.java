@@ -8,7 +8,6 @@ import Vista.Principal;
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Locale;
-import java.util.Vector;
 
 public class Main {
     public static int posicionCliente;
