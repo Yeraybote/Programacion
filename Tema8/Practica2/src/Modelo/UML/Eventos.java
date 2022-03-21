@@ -20,6 +20,9 @@ public class Eventos {
         this.npersonas = npersonas;
     }
 
+    public Eventos() {
+    }
+
     public String getNombre() {
         return nombre;
     }
