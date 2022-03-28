@@ -68,6 +68,12 @@ public class EventosDAO {
         return ev; */
     }
 
+    public void modificarEvento(Eventos ev) throws SQLException {
+        Statement sentencia = con.createStatement ();
+        String a = "ev.get" + Main.atributo;
+        sentencia.executeUpdate ("UPDATE eventos SET " + Main.atributo + " = " + a + " WHERE nombre = '" + Main.nombev + "'");
+    }
+
     public void eliminarEvento (String n) throws Exception {
         Statement sentencia = con.createStatement ();
         sentencia.executeUpdate ("DELETE FROM eventos WHERE nombre = '" + n + "'");

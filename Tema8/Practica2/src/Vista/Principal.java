@@ -10,6 +10,8 @@ public class Principal {
     private JButton bGuardar;
     public JPanel jPrincipal;
     private JButton bCancelar;
+    private JButton bModificar;
+    private JButton bAsistir;
 
     public Principal() {
         bGuardar.addActionListener(new ActionListener() {
@@ -22,6 +24,12 @@ public class Principal {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 Main.ventanaCancelarEvento();
+            }
+        });
+        bModificar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                Main.ventanaModificarEvento();
             }
         });
     }

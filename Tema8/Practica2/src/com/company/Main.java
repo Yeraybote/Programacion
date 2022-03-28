@@ -5,6 +5,7 @@ import Modelo.BD.EventosDAO;
 import Modelo.UML.Eventos;
 import Vista.CancelarEvento;
 import Vista.CrearEvento;
+import Vista.ModificarEvento;
 import Vista.Principal;
 
 import javax.swing.*;
@@ -13,6 +14,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 public class Main {
+    public static String nombev;
+    public static String atributo;
     private static BaseDatos bd;
     private static EventosDAO edao;
     public static boolean error = true;
@@ -55,6 +58,16 @@ public class Main {
         frame.setVisible(true);
     }
 
+    public static void ventanaModificarEvento(){
+        JFrame frame = new JFrame("ModificarEvento");
+        frame.setSize(200,200);
+        frame.setLocationRelativeTo(null);
+        frame.setContentPane(new ModificarEvento().jModificarEvento);
+        frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+    }
+
     public static Time pasarStringTime(String hora) throws ParseException {
         SimpleDateFormat format = new SimpleDateFormat("HH:mm");
         java.util.Date d1 =(java.util.Date)format.parse(hora);
@@ -72,6 +85,15 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
             error = false;
+        }
+    }
+
+    public static void modificarEvento (String n, String up){
+        Eventos ev = new Eventos();
+        ev.setNombre(n);
+        nombev = n;
+        if (atributo.equals("Nombre")) {
+            ev.setNombre(up);
         }
     }
 }
