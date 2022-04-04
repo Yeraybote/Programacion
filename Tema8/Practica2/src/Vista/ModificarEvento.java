@@ -18,9 +18,8 @@ public class ModificarEvento {
         bModificar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                Main.atributo = cbAtributo.getToolTipText();
-                /** ee **/
-                System.out.println(cbAtributo.getInputContext());
+                Main.atributo = (String) cbAtributo.getSelectedItem();
+                System.out.println(Main.atributo);
             }
         });
     }
